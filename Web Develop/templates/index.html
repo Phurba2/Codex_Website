@@ -1,70 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
     <title>Webpage Design</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSB7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    
 </head>
-
 <body>
     <div class="main">
         <div class="navbar">
             <div class="icon">
-                <h2 class="logo"> Codex Engineering</h2>
+                <h2 class="logo">Codex Engineering</h2>
             </div>
-
             <div class="menu">
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">SERVICE</a></li>
-                    <li><a href="#">DESIGN</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="#" onclick="showSection('home')">HOME</a></li>
+                    <li><a href="#" onclick="showSection('about')">ABOUT</a></li>
+                    <li><a href="#" onclick="showSection('service')">SERVICE</a></li>
+                    <li><a href="#" onclick="showSection('design')">DESIGN</a></li>
+                    <li><a href="#" onclick="showSection('contact')">CONTACT</a></li>
                 </ul>
             </div>
-
             <div class="search">
-                <input class= "srch" type="search" name="" placeholder="Type to text">
-                <a href="#"> <button class="btn">Search</button></a>
+                <input class="srch" type="search" name="search" placeholder="Type to text">
+                <a href="#"><button class="btn">Search</button></a>
             </div>
-
         </div>
         <div class="content">
-            <h1>Web Design & <br><Span>Software</Span> <br>Development</h1>
-            <p class="par">Welcome to Codex Engineering your trusted partner for innovative web design and
-                software<br> development solutions.Transform your digital presence with our expert team by crafting
-                <br> stunning websites and powerful software tailored to your needs.</p>
-
+            <!-- Home Section -->
+            <div id="home" class="section active">
+                <h1>Web Design & <br><span>Software</span> <br>Development</h1>
+                <p class="par">Welcome to Codex Engineering, your trusted partner for innovative web design and
+                    software<br> development solutions. Transform your digital presence with our expert team by crafting
+                    <br> stunning websites and powerful software tailored to your needs.</p>
                 <button class="cn"><a href="#">JOIN US</a></button>
+            </div>
 
-                <div class="form">
-                    <h2>Login Here</h2>
+            <!-- About Section -->
+            <div id="about" class="section">
+                <h1>ABOUT</h1>
+                <p class="par">Codex Engineering is a leading software development company dedicated to delivering<br>
+                     cutting-edge solutions for businesses worldwide. We've been transforming<br>
+                     ideas into powerful software products. Our team of experienced developers, designers, and <br>
+                     innovators work together to create software that solves real-world problems and drives<br>
+                     business success.<br><br>
+                </p>
+            </div>
 
-                    <form action="/submit" method="post">
+            <!-- Service Section -->
+            <div id="service" class="section">
+                <h1>SERVICE</h1>
+                <p class="par">
+                    <h2>Custom Software Development</h2>
+                    <p>We create tailored software solutions to meet your unique business needs, using cutting-edge technologies.</p><br>
+                    <h2>Web Development</h2>
+                    <p>Building responsive, scalable websites that enhance your online presence and user engagement.</p><br>
+                    <h2>Mobile App Development</h2>
+                    <p>Developing intuitive iOS and Android applications for seamless mobile experiences.</p><br>
+                    <h2>Cloud Solutions</h2>
+                    <p>Offering cloud integration and management services for efficient, scalable operations.</p>
+                    </p>
+            </div>
 
-                        <input type="email" name="email" placeholder="Email">
-                        <input type="password" name="password" placeholder="password">
+            <!-- Design Section -->
+            <div id="design" class="section">
+                <h1>DESIGN</h1>
+                <p class="par">
+                    <h2>We Create Stunning Designs</h2>
+                    <p>In addition to software, we specialize in creating captivating designs and graphics that elevate your brand.</p><br>
+                        <h3>UI/UX Design</h3>
+                        <p>Crafting intuitive and beautiful user interfaces for web and mobile applications.</p><br>
+                        <h3>Graphic Design</h3>
+                        <p>Designing logos, banners, and marketing materials that make an impact.</p><br>
+                        <h3>Branding</h3>
+                        <p>Developing cohesive brand identities that resonate with your audience.</p>
+                </p>
+            </div>
 
-                        <button class="btnn" type="submit">Login</button>
-                    </form>
-                        
-                    <p class="link">Don't have an account<br>
-                    <a href="#">Sign up </a>here</a></p>
-                    <P class="liw">Log in with</P>
+            <!-- Contact Section -->
+            <div id="contact" class="section">
+                <h1>CONTACT</h1>
+                <p class="par">
+                    <h2>Get in Touch</h2><br>
+                    <strong>Email:</strong> codexengineeringccmail@gmail.com<br>
+                    <strong>Phone:</strong> 9823856923 / 9823665511<br>
+                    <strong>Address:</strong> Hattigauda, Kathmandu<br>
+                    <strong>Business Hours:</strong>  - 24hr
+                </p>
+            </div>
 
-                    <div class="icons" >
+            <!-- Login Form (Always Visible) -->
+            <div class="form">
+                <h2>Login Here</h2>
+                <form action="/submit" method="post">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button class="btnn" type="submit">Login</button>
+                </form>
+                <p class="link">Don't have an account?<br>
+                <a href="#">Sign up here</a></p>
+                <p class="liw">Log in with</p>
+                <div class="icons">
                     <i class="fa-brands fa-facebook"></i>
                     <i class="fa-brands fa-instagram"></i>
                     <i class="fa-brands fa-twitter"></i>
                     <i class="fa-brands fa-google"></i>
                     <i class="fa-brands fa-skype"></i>
-                    </div>
                 </div>
-
+            </div>
         </div>
     </div>
 
+    <!-- JavaScript to toggle sections -->
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Show the home section by default on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+    </script>
 </body>
 </html>
